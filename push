@@ -1,0 +1,5 @@
+#!/bin/bash
+
+gp origin master
+gp github master
+
