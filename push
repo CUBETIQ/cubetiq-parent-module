@@ -1,5 +1,5 @@
 #!/bin/bash
 
-gp origin master
-gp github master
+git push origin master
+git push github master
 
