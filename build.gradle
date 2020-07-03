@@ -14,9 +14,6 @@ repositories {
 }
 
 dependencies {
-    // import a BOM
-    implementation platform('org.springframework.boot:spring-boot-dependencies:2.3.0.RELEASE')
-
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
