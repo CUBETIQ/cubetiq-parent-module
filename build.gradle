@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'maven'
 }
 
 group 'com.cubetiqs'
@@ -8,7 +9,7 @@ version '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
     maven {
-        url "https://oss-internal.cubetiqs.com/repository/maven-public/"
+        url "${nexusUrl}/repository/maven-public/"
     }
 }
 
@@ -19,15 +20,15 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
-//uploadArchives {
-//    repositories {
-//        mavenDeployer {
-//            repository(url: "${nexusUrl}/repository/maven-releases/") {
-//                authentication(userName: nexusUsername, password: nexusPassword)
-//            }
-//            snapshotRepository(url: "${nexusUrl}/repository/maven-snapshots") {
-//                authentication(userName: nexusUsername, password: nexusPassword)
-//            }
-//        }
-//    }
-//}
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "${nexusUrl}/repository/maven-releases/") {
+                authentication(userName: nexusUsername, password: nexusPassword)
+            }
+            snapshotRepository(url: "${nexusUrl}/repository/maven-snapshots") {
+                authentication(userName: nexusUsername, password: nexusPassword)
+            }
+        }
+    }
+}
